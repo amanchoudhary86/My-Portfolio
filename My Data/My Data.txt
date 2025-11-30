@@ -1,6 +1,9 @@
 Name: Aman Choudhary
 Official Email: amanchoudhary.1502@gmail.com
 Cell No.: +91 8690595763
+Date of Birth: 15 February, 2004
+Permanent Residential Address: Mahatma Jyothiba Phule Colony, Jaipur-Jhunjhunu Bypass, 332001, Sikar, Rajasthan
+
 
 UI Sources:
 Lightswind UI
