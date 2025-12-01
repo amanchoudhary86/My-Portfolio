@@ -4,6 +4,24 @@ Cell No.: +91 8690595763
 Date of Birth: 15 February, 2004
 Permanent Residential Address: Mahatma Jyothiba Phule Colony, Jaipur-Jhunjhunu Bypass, 332001, Sikar, Rajasthan
 
+Certifications Done:
+1. Neo4j Certified Professional
+Link: https://graphacademy.neo4j.com/c/87cbe9c3-869a-401d-8782-e2821292a556/
+
+2. Neo4j Fundamentals
+Link: https://graphacademy.neo4j.com/c/3d15c575-307a-4813-a1c5-18d77c50eeb8/
+
+3. Neo4j Importing Data Fundamentals
+Link: https://graphacademy.neo4j.com/c/6036edec-3210-437d-8ac4-778fe6e5a714/
+
+4. Neo4j Graph Data Modeling Fundamentals
+Link: https://graphacademy.neo4j.com/c/27624456-e0d5-4691-b496-128d4b85ffa9/
+
+5. Cypher Fundamentals
+Link: https://graphacademy.neo4j.com/c/89718e5c-13c8-4943-854e-43104208448f/
+
+6. OCI AI Foundations Associate
+Link: 
 
 UI Sources:
 Lightswind UI
