@@ -44,3 +44,13 @@ Reactbits.dev
 barba.js
 shadcn.com
 
+Projects:
+1. Email Ham/Spam Classifier
+Link: https://github.com/amanchoudhary86/Upflairs_Internship_Projects/tree/main/email_classification_model
+
+2. Email Automation using n8n
+Link: https://github.com/amanchoudhary86/n8n-Email-Automation
+
+3. Inventory manager bot
+Link: https://github.com/amanchoudhary86/whatsapp-inventory-bot
+
