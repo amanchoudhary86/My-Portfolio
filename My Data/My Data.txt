@@ -53,4 +53,3 @@ Link: https://github.com/amanchoudhary86/n8n-Email-Automation
 
 3. Inventory manager bot
 Link: https://github.com/amanchoudhary86/whatsapp-inventory-bot
-
