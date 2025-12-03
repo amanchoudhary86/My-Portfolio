@@ -18,10 +18,22 @@ Link: https://graphacademy.neo4j.com/c/6036edec-3210-437d-8ac4-778fe6e5a714/
 Link: https://graphacademy.neo4j.com/c/27624456-e0d5-4691-b496-128d4b85ffa9/
 
 5. Cypher Fundamentals
-Link: https://graphacademy.neo4j.com/c/89718e5c-13c8-4943-854e-43104208448f/
+Badge Link: https://graphacademy.neo4j.com/c/89718e5c-13c8-4943-854e-43104208448f/
 
 6. OCI AI Foundations Associate
-Link: 
+Badge Link: https://catalog-education.oracle.com/ords/certview/sharebadge?id=0D744D1808EB47C40F739C349360F6689EE866A63D49AA43CDE695F31D7C328B
+
+7. OCI Foundations Associate
+Badge Link: https://catalog-education.oracle.com/ords/certview/sharebadge?id=84E2B6091C028A9E62330949146FC34F033DDE7BB6B036DE8342D0AE3B811330
+
+8. OCI Generative AI Professional
+Badge Link: https://catalog-education.oracle.com/ords/certview/sharebadge?id=A2B24D44DDBD000904669BB8D30C719E0C2E67FD302C92308BEF1C8752A6CD40
+
+9. Oracle AI Vector Search Certified Professional
+Badge Link: https://catalog-education.oracle.com/ords/certview/sharebadge?id=A67EF37418B028B1C40B110829FE85FB0029F14C66227B5ECD7C9CC04D0A5949
+
+10. Gen AI Academy Completion Certificate
+Certificate Link: https://certificate.hack2skill.com/user/genai5/2025H2S04GENAI-A500063
 
 UI Sources:
 Lightswind UI
