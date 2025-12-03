@@ -53,3 +53,28 @@ Link: https://github.com/amanchoudhary86/n8n-Email-Automation
 
 3. Inventory manager bot
 Link: https://github.com/amanchoudhary86/whatsapp-inventory-bot
+
+Skills:
+1. Python(Intermediate)
+2. AI/ML(Intermediate)
+3. JAVA(Familiar + Basics)
+4. Web Development(Basics + Familiarity)
+5. Cloud Computing(Basics)
+6. n8n(Basics)
+7. GIT/GitHub(Above Intermediate)
+8. Web Frameworks -> Flask and Django(Basics)
+9. IoT(Familiarity + Basics)
+
+
+About Me:
+My Name is Aman Choudhary and I am passionate about the tech field overall especially in the areas of AI/ML. I am currently in my final year persuing Bachelor of Technology(Computer Science and Engineering) from Amity University Rajasthan. Currently I hold the position of Management Head of RAIoT(Robotics, Automation and Internet of Things) Club acting as one of the core panelist. I have participated in many of the hackathons and have secured good positions in them including the IIT level competitions. I am also enthusiastic about the upcoming future technologies like quantum computing, etc,. Also I do code for fun but my main motive is usually to create something which could add  some value to the real life.
+
+About my Education:
+I have completed my Primary Education (Year of passing:2020) from Daffodils World School and my Secondary Education(Year of passing:2022) from Swami Keshwanand Convent School
+
+Speaking of RAIoT:
+Management Head
+2024 — Present
+
+Senior Developer
+2022 — 2024
