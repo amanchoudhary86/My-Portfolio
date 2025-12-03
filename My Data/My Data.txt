@@ -40,3 +40,7 @@ Lightswind UI
 LottieFiles
 Rive
 Reactbits.dev
+21st.dev
+barba.js
+shadcn.com
+
