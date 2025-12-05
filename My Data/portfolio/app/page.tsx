@@ -12,10 +12,14 @@ import { About } from "@/components/sections/about"
 import { Skills } from "@/components/sections/skills"
 import { Projects } from "@/components/sections/projects"
 import { Contact } from "@/components/sections/contact"
+import { HackerBackground } from "@/components/3d/HackerBackground"
+import { Loader } from "@/components/ui/loader"
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-full relative">
+      <Loader />
+      <HackerBackground />
       <section className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center space-y-8 text-center w-full py-12 md:py-24">
         <MatrixRain />
         <motion.div

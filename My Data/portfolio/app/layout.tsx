@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   description: "Portfolio of Aman Choudhary - AI/ML Enthusiast",
 };
 
+import { CustomCursor } from "@/components/ui/custom-cursor";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background font-mono text-foreground`}
       >
+        <CustomCursor />
         <Navbar />
         <main className="container mx-auto px-4 py-8">
           {children}

@@ -1,51 +1,48 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { useEffect } from "react"
+import { motion, useMotionValue, useTransform, animate } from "framer-motion"
 
 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+"
 
 interface EncryptionTextProps {
     text: string
     className?: string
-    interval?: number
+    interval?: number // Kept for compatibility, but duration is derived
 }
 
-export function EncryptionText({ text, className, interval = 50 }: EncryptionTextProps) {
-    const [displayText, setDisplayText] = useState("")
+export function EncryptionText({ text, className }: EncryptionTextProps) {
+    const count = useMotionValue(0)
+    const rounded = useTransform(count, (latest) => Math.round(latest))
+    const displayText = useTransform(rounded, (latest) => {
+        return text
+            .split("")
+            .map((letter, index) => {
+                if (index < latest) {
+                    return text[index]
+                }
+                return chars[Math.floor(Math.random() * chars.length)]
+            })
+            .join("")
+    })
 
     useEffect(() => {
-        let iteration = 0
-        const timer = setInterval(() => {
-            setDisplayText(
-                text
-                    .split("")
-                    .map((letter, index) => {
-                        if (index < iteration) {
-                            return text[index]
-                        }
-                        return chars[Math.floor(Math.random() * chars.length)]
-                    })
-                    .join("")
-            )
-
-            if (iteration >= text.length) {
-                clearInterval(timer)
+        const controls = animate(count, text.length, {
+            duration: 3, // Adjust duration as needed
+            ease: "easeInOut",
+            onUpdate: (latest) => {
+                // Force re-render of random characters for unrevealed part
+                // This is tricky with MotionValue. 
+                // Actually, the transform runs on every frame if 'count' changes.
+                // But we want random chars to change even if 'count' stays same? 
+                // No, count changes every frame.
             }
-
-            iteration += 1 / 3
-        }, interval)
-
-        return () => clearInterval(timer)
-    }, [text, interval])
+        })
+        return controls.stop
+    }, [count, text.length])
 
     return (
-        <motion.span
-            className={className}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-        >
+        <motion.span className={className}>
             {displayText}
         </motion.span>
     )
