@@ -1,0 +1,10 @@
+UI Components:
+https://reactbits.dev/text-animations/decrypted-text
+https://reactbits.dev/backgrounds/grid-scan
+https://lightswind.com/components/confetti-button
+https://lightswind.com/components/trial-button
+https://lightswind.com/components/morphing-navigation
+https://lightswind.com/components/scroll-timeline
+https://lightswind.com/components/terminal-card
+https://uiverse.io/jeremyssocial/ugly-bullfrog-62
+https://uiverse.io/jeremyssocial/curvy-walrus-79
