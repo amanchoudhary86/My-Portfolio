@@ -3,7 +3,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { User, GraduationCap } from "lucide-react"
-import { Timeline } from "@/components/ui/timeline"
 import { MouseEvent } from "react"
 
 function TiltCard({ children }: { children: React.ReactNode }) {
@@ -96,26 +95,13 @@ export function About() {
                                 <span className="font-bold text-foreground">Role:</span> Management Head @ RAIoT (Robotics, Automation and Internet of Things) Club
                             </p>
                             <p>
-                                <span className="font-bold text-foreground">Directives:</span> Passionate about exploring future technologies like Quantum Computing, with a primary focus on advancing AI/ML. Dedicated to creating value-driven solutions that impact real life.
+                                <span className="font-bold text-foreground">Directives:</span> Passionate about exploring future technologies, with a primary focus on advancing AI/ML. Dedicated to creating value-driven solutions that impact real life. I thrive on engineering systems that scale with ambition and solve problems that actually matter.
                             </p>
                         </CardContent>
                     </Card>
                 </div>
             </motion.div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="space-y-8"
-            >
-                <div className="flex items-center gap-4">
-                    <GraduationCap className="h-8 w-8 text-primary" />
-                    <h2 className="text-3xl font-bold tracking-tight text-primary">Education Timeline</h2>
-                </div>
-                <Timeline />
-            </motion.div>
         </section>
     )
 }

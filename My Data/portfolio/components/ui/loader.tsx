@@ -85,7 +85,7 @@ function GyroRings() {
     )
 }
 
-export function Loader() {
+export function Loader({ onLoadingComplete }: { onLoadingComplete?: () => void }) {
     const [isLoading, setIsLoading] = useState(true)
     const [progress, setProgress] = useState(0)
     const [statusText, setStatusText] = useState("INITIALIZING KERNEL")
@@ -109,12 +109,26 @@ export function Loader() {
 
             if (currentStep >= steps) {
                 clearInterval(timer)
-                setTimeout(() => setIsLoading(false), 500)
+                setTimeout(() => {
+                    setIsLoading(false)
+                    if (onLoadingComplete) onLoadingComplete()
+                }, 500)
             }
         }, interval)
 
         return () => clearInterval(timer)
     }, [])
+
+    useEffect(() => {
+        if (isLoading) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "unset"
+        }
+        return () => {
+            document.body.style.overflow = "unset"
+        }
+    }, [isLoading])
 
     return (
         <AnimatePresence>

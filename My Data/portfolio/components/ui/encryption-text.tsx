@@ -1,49 +1,59 @@
 "use client"
 
-import { useEffect } from "react"
-import { motion, useMotionValue, useTransform, animate } from "framer-motion"
+import { useEffect, useState } from "react"
+import { motion, animate } from "framer-motion"
 
 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+"
 
 interface EncryptionTextProps {
     text: string
     className?: string
-    interval?: number // Kept for compatibility, but duration is derived
+    interval?: number
 }
 
 export function EncryptionText({ text, className }: EncryptionTextProps) {
-    const count = useMotionValue(0)
-    const rounded = useTransform(count, (latest) => Math.round(latest))
-    const displayText = useTransform(rounded, (latest) => {
-        return text
-            .split("")
-            .map((letter, index) => {
-                if (index < latest) {
-                    return text[index]
-                }
-                return chars[Math.floor(Math.random() * chars.length)]
-            })
-            .join("")
-    })
+    const [isMounted, setIsMounted] = useState(false)
+    const [revealProgress, setRevealProgress] = useState(0)
 
     useEffect(() => {
-        const controls = animate(count, text.length, {
-            duration: 3, // Adjust duration as needed
+        setIsMounted(true)
+        const controls = animate(0, text.length, {
+            duration: 2.5,
             ease: "easeInOut",
             onUpdate: (latest) => {
-                // Force re-render of random characters for unrevealed part
-                // This is tricky with MotionValue. 
-                // Actually, the transform runs on every frame if 'count' changes.
-                // But we want random chars to change even if 'count' stays same? 
-                // No, count changes every frame.
+                setRevealProgress(latest)
             }
         })
         return controls.stop
-    }, [count, text.length])
+    }, [text.length])
+
+    if (!isMounted) {
+        return <span className={className}> </span>
+    }
+
+    const currentIndex = Math.floor(revealProgress)
+    const isComplete = currentIndex >= text.length
 
     return (
-        <motion.span className={className}>
-            {displayText}
-        </motion.span>
+        <span className={className}>
+            {/* Revealed Text */}
+            {text.slice(0, currentIndex)}
+
+            {/* Fat Cursor (Only show if not complete) */}
+            {!isComplete && (
+                <span className="bg-[#39ff14] text-black inline-block w-[1ch] align-middle h-[1.2em] relative -top-[0.1em] leading-none animate-pulse">
+                    {chars[Math.floor(Math.random() * chars.length)]}
+                </span>
+            )}
+
+            {/* Scrambled Remaining Text */}
+            <span className="opacity-50">
+                {text
+                    .slice(currentIndex + 1)
+                    .split("")
+                    .map(() => chars[Math.floor(Math.random() * chars.length)])
+                    .join("")}
+            </span>
+        </span>
     )
 }
