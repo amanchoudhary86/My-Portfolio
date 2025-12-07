@@ -10,28 +10,42 @@ import { Mail, Send } from "lucide-react"
 
 export function Contact() {
     const [result, setResult] = useState<string>("")
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setResult("Sending....");
-        const formData = new FormData(event.currentTarget);
+        setIsSubmitting(true);
+        setResult(""); // Clear previous results
 
+        const formData = new FormData(event.currentTarget);
         // IMPORTANT: Replace this access key with your own from web3forms.com
         formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (data.success) {
-            setResult("Form Submitted Successfully");
-            event.currentTarget.reset();
-        } else {
-            console.log("Error", data);
-            setResult(data.message);
+            setIsSubmitting(false);
+
+            if (data.success) {
+                setResult("Form Submitted Successfully");
+                event.currentTarget.reset();
+                // Clear success message after 5 seconds
+                setTimeout(() => {
+                    setResult("");
+                }, 5000);
+            } else {
+                console.log("Error", data);
+                setResult(data.message);
+            }
+        } catch (error) {
+            console.error("Submission error", error);
+            setIsSubmitting(false);
+            setResult("Something went wrong. Please try again.");
         }
     };
 
@@ -62,6 +76,7 @@ export function Contact() {
                                     placeholder="Your Name"
                                     required
                                     className="bg-background/50 border-primary/30 focus:border-primary"
+                                    disabled={isSubmitting}
                                 />
                             </div>
                             <div className="space-y-2">
@@ -71,6 +86,7 @@ export function Contact() {
                                     placeholder="Your Email"
                                     required
                                     className="bg-background/50 border-primary/30 focus:border-primary"
+                                    disabled={isSubmitting}
                                 />
                             </div>
                             <div className="space-y-2">
@@ -79,21 +95,37 @@ export function Contact() {
                                     placeholder="Your Message"
                                     required
                                     className="bg-background/50 border-primary/30 focus:border-primary min-h-[150px]"
+                                    disabled={isSubmitting}
                                 />
                             </div>
 
-                            <div className="text-xs text-muted-foreground text-center">
-                                Note: You need to replace 'YOUR_ACCESS_KEY_HERE' in the code with your actual Web3Forms Access Key.
-                            </div>
 
-                            <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                                <Send className="mr-2 h-4 w-4" /> Send Transmission
+                            <Button
+                                type="submit"
+                                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-70 disabled:cursor-not-allowed"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? (
+                                    <div className="flex items-center">
+                                        <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+                                        Transmitting...
+                                    </div>
+                                ) : (
+                                    <>
+                                        <Send className="mr-2 h-4 w-4" /> Send Transmission
+                                    </>
+                                )}
                             </Button>
 
                             {result && (
-                                <div className="text-center text-sm font-medium text-primary mt-4">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                    className={`text-center text-sm font-medium mt-4 ${result.includes("Success") ? "text-primary" : "text-red-400"}`}
+                                >
                                     {result}
-                                </div>
+                                </motion.div>
                             )}
                         </form>
                     </CardContent>

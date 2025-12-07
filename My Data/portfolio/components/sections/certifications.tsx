@@ -4,77 +4,84 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Award, CheckCircle2 } from "lucide-react"
+import { ExternalLink, Award, CheckCircle2, Download } from "lucide-react"
 import Link from "next/link"
+
+// ... (imports remain the same)
 
 const certifications = [
     {
         title: "Neo4j Certified Professional",
         issuer: "Neo4j",
-        date: "2024",
+        date: "July 13, 2025",
         url: "https://graphacademy.neo4j.com/c/87cbe9c3-869a-401d-8782-e2821292a556/",
         tags: ["Graph Database", "NoSQL", "Neo4j"],
     },
     {
         title: "OCI Generative AI Professional",
         issuer: "Oracle",
-        date: "2024",
+        date: "October 24, 2025",
         url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=A2B24D44DDBD000904669BB8D30C719E0C2E67FD302C92308BEF1C8752A6CD40",
         tags: ["Generative AI", "Oracle Cloud", "LLMs"],
+        pdf: "/certificates/oci-gen-ai-professional.pdf"
     },
     {
         title: "Oracle AI Vector Search Certified Professional",
         issuer: "Oracle",
-        date: "2024",
+        date: "October 24, 2025",
         url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=A67EF37418B028B1C40B110829FE85FB0029F14C66227B5ECD7C9CC04D0A5949",
         tags: ["AI", "Vector Search", "RAG"],
+        pdf: "/certificates/oracle-vector-ai-professional.pdf"
     },
     {
         title: "OCI AI Foundations Associate",
         issuer: "Oracle",
-        date: "2024",
+        date: "October 4, 2025",
         url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=0D744D1808EB47C40F739C349360F6689EE866A63D49AA43CDE695F31D7C328B",
         tags: ["AI", "Machine Learning", "Cloud"],
+        pdf: "/certificates/oci-ai-foundations-associate.pdf"
     },
     {
         title: "OCI Foundations Associate",
         issuer: "Oracle",
-        date: "2024",
+        date: "October 31, 2025",
         url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=84E2B6091C028A9E62330949146FC34F033DDE7BB6B036DE8342D0AE3B811330",
         tags: ["Cloud Infrastructure", "OCI", "Basics"],
+        pdf: "/certificates/oci-foundations-associate.pdf"
     },
+    // ... (rest of certifications remain the same)
     {
         title: "Cypher Fundamentals",
         issuer: "Neo4j",
-        date: "2024",
+        date: "July 6, 2025",
         url: "https://graphacademy.neo4j.com/c/89718e5c-13c8-4943-854e-43104208448f/",
         tags: ["Cypher", "Query Language", "Graph"],
     },
     {
         title: "Neo4j Graph Data Modeling Fundamentals",
         issuer: "Neo4j",
-        date: "2024",
+        date: "July 8, 2025",
         url: "https://graphacademy.neo4j.com/c/27624456-e0d5-4691-b496-128d4b85ffa9/",
         tags: ["Data Modeling", "Graph Theory", "Database"],
     },
     {
         title: "Neo4j Importing Data Fundamentals",
         issuer: "Neo4j",
-        date: "2024",
+        date: "July 8, 2025",
         url: "https://graphacademy.neo4j.com/c/6036edec-3210-437d-8ac4-778fe6e5a714/",
         tags: ["ETL", "Data Import", "Neo4j"],
     },
     {
         title: "Neo4j Fundamentals",
         issuer: "Neo4j",
-        date: "2024",
+        date: "July 6, 2025",
         url: "https://graphacademy.neo4j.com/c/3d15c575-307a-4813-a1c5-18d77c50eeb8/",
         tags: ["Graph DB", "Basics", "Neo4j"],
     },
     {
         title: "Gen AI Academy Completion Certificate",
         issuer: "Hack2Skill",
-        date: "2024",
+        date: "April 2025",
         url: "https://certificate.hack2skill.com/user/genai5/2025H2S04GENAI-A500063",
         tags: ["Generative AI", "Hackathon", "Skills"],
     },
@@ -102,7 +109,7 @@ export function Certifications() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
                     >
-                        <Card className="h-full bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-colors group">
+                        <Card className="h-full bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-colors group flex flex-col">
                             <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
                                 <div className="flex items-center gap-2">
                                     <Award className="w-5 h-5 text-primary" />
@@ -112,7 +119,7 @@ export function Certifications() {
                                     <CheckCircle2 className="w-3 h-3 mr-1" /> Verified
                                 </Badge>
                             </CardHeader>
-                            <CardContent className="space-y-4">
+                            <CardContent className="space-y-4 flex-grow flex flex-col">
                                 <div>
                                     <CardTitle className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
                                         {cert.title}
@@ -130,12 +137,22 @@ export function Certifications() {
                                     ))}
                                 </div>
 
-                                <Button variant="ghost" className="w-full justify-between group/btn hover:bg-primary/10" asChild>
-                                    <Link href={cert.url} target="_blank">
-                                        View Credential
-                                        <ExternalLink className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all" />
-                                    </Link>
-                                </Button>
+                                <div className="mt-auto pt-4 flex gap-2">
+                                    <Button variant="ghost" className="flex-1 justify-between group/btn hover:bg-primary/10" asChild>
+                                        <Link href={cert.url} target="_blank">
+                                            View Badge
+                                            <ExternalLink className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all" />
+                                        </Link>
+                                    </Button>
+                                    {/* Conditionally render download button if PDF exists */}
+                                    {cert.pdf && (
+                                        <Button variant="outline" className="flex-shrink-0 border-primary/20 text-primary hover:bg-primary/10" asChild>
+                                            <a href={cert.pdf} download>
+                                                <Download className="w-4 h-4" />
+                                            </a>
+                                        </Button>
+                                    )}
+                                </div>
                             </CardContent>
                         </Card>
                     </motion.div>
