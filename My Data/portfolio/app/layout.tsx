@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import { Navbar } from "@/components/navbar";
 import { MorphingNavigation } from "@/components/ui/morphing-navigation";
-import { Terminal, User, Code, Mail, FileText, Briefcase } from "lucide-react";
+import { Terminal, User, Code, Mail, FileText, Briefcase, Award } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +40,7 @@ export default function RootLayout({
             { id: "experience", label: "Experience", href: "#experience", icon: <Briefcase className="w-4 h-4" /> },
             { id: "skills", label: "Skills", href: "#skills", icon: <Code className="w-4 h-4" /> },
             { id: "projects", label: "Projects", href: "#projects", icon: <FileText className="w-4 h-4" /> },
+            { id: "certifications", label: "Certifications", href: "#certifications", icon: <Award className="w-4 h-4" /> },
             { id: "contact", label: "Contact", href: "#contact", icon: <Mail className="w-4 h-4" /> },
           ]}
         />

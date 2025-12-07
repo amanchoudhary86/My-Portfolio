@@ -103,7 +103,32 @@ export const ScrollTimeline = ({
         restDelta: 0.001,
     });
 
-    const progressHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
+    const [lineHeight, setLineHeight] = useState(0);
+
+    useEffect(() => {
+        if (timelineRefs.current.length === 0) return;
+
+        const calculateHeight = () => {
+            const lastItem = timelineRefs.current[events.length - 1]; // Use events.length to be safer
+            if (lastItem) {
+                // The dot is centered in the item (top-1/2).
+                // Item offsetTop is relative to the parent container (line 239).
+                // So height = offsetTop + offsetHeight / 2
+                const newHeight = lastItem.offsetTop + lastItem.offsetHeight / 2;
+                setLineHeight(newHeight);
+            }
+        };
+
+        calculateHeight();
+        window.addEventListener("resize", calculateHeight);
+        return () => window.removeEventListener("resize", calculateHeight);
+    }, [events]);
+
+    const progressHeight = useTransform(
+        smoothProgress,
+        [0, 1],
+        [0, lineHeight]
+    );
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.onChange((v) => {
@@ -238,7 +263,8 @@ export const ScrollTimeline = ({
             <div className="relative max-w-6xl mx-auto px-4 pb-24">
                 <div className="relative mx-auto">
                     <div
-                        className={cn(getConnectorClasses(), "h-full absolute top-0 z-10")}
+                        className={cn(getConnectorClasses(), "absolute top-0 z-10")}
+                        style={{ height: lineHeight ? `${lineHeight}px` : "100%" }}
                     ></div>
 
                     {/* === MODIFICATION START === */}

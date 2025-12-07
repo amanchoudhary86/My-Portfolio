@@ -46,9 +46,12 @@ function HolographicCard({ children, className = "" }: { children: React.ReactNo
         >
             <div
                 style={{ transform: "translateZ(75px)" }}
-                className="absolute inset-4 rounded-xl bg-primary/20 blur-xl group-hover:bg-primary/40 transition-colors duration-500"
+                className="absolute inset-4 rounded-xl bg-primary/20 blur-xl group-hover:bg-primary/40 transition-colors duration-500 pointer-events-none"
             />
-            <div className="relative h-full bg-black/80 backdrop-blur-xl border border-primary/30 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(57,255,20,0.1)] group-hover:border-primary/80 transition-colors duration-300">
+            <div
+                style={{ transform: "translateZ(80px)" }}
+                className="relative h-full bg-black/80 backdrop-blur-xl border border-primary/30 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(57,255,20,0.1)] group-hover:border-primary/80 transition-colors duration-300 transform-gpu"
+            >
                 {/* Holographic Sheen */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ mixBlendMode: 'overlay' }} />
 
@@ -94,7 +97,7 @@ export function Projects() {
             >
                 <h2 className="text-3xl font-bold tracking-tight text-primary mb-4">Project Database</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                    A collection of deployed systems and experimental prototypes.
+                    A collection of deployed systems.
                 </p>
             </motion.div>
 
@@ -127,6 +130,6 @@ export function Projects() {
                     </HolographicCard>
                 ))}
             </div>
-        </section>
+        </section >
     )
 }

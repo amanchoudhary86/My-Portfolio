@@ -1,25 +1,44 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 interface Skill {
     name: string
     level: string
     percentage: number
-    category: string
 }
 
-const skills: Skill[] = [
-    { name: "Python", level: "Intermediate", percentage: 65, category: "Language" },
-    { name: "AI/ML", level: "Intermediate", percentage: 60, category: "Core" },
-    { name: "GIT/GitHub", level: "Above Intermediate", percentage: 75, category: "Tool" },
-    { name: "JAVA", level: "Familiar + Basics", percentage: 40, category: "Language" },
-    { name: "Web Dev", level: "Basics + Familiarity", percentage: 40, category: "Web" },
-    { name: "Flask & Django", level: "Basics", percentage: 35, category: "Framework" },
-    { name: "Cloud Computing", level: "Basics", percentage: 30, category: "Infra" },
-    { name: "n8n", level: "Basics", percentage: 30, category: "Automation" },
-    { name: "IoT", level: "Familiarity + Basics", percentage: 35, category: "Hardware" },
+interface SkillCategory {
+    title: string
+    skills: Skill[]
+}
+
+const skillCategories: SkillCategory[] = [
+    {
+        title: "Languages",
+        skills: [
+            { name: "Python", level: "Intermediate", percentage: 65 },
+            { name: "JAVA", level: "Fundamental", percentage: 40 },
+        ]
+    },
+    {
+        title: "Core Domains",
+        skills: [
+            { name: "AI/ML", level: "Intermediate", percentage: 60 },
+            { name: "Web Development", level: "Fundamental", percentage: 40 },
+            { name: "Cloud Computing", level: "Fundamental", percentage: 30 },
+            { name: "IoT", level: "Fundamental", percentage: 35 },
+        ]
+    },
+    {
+        title: "Tools & Frameworks",
+        skills: [
+            { name: "GIT/GitHub", level: "Advanced", percentage: 75 },
+            { name: "n8n", level: "Fundamental", percentage: 30 },
+            { name: "Django", level: "Fundamental", percentage: 35 },
+        ]
+    }
 ]
 
 const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
@@ -27,50 +46,41 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.05 }}
             viewport={{ once: true }}
             className="relative group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Cyber Card Container */}
-            <div className="relative h-full bg-black/40 border border-primary/30 p-6 backdrop-blur-sm overflow-hidden transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(57,255,20,0.3)]">
-
-                {/* Corner Accents */}
-                <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary opacity-50 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-primary opacity-50 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-primary opacity-50 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary opacity-50 group-hover:opacity-100 transition-opacity" />
-
-                {/* Scanline Effect */}
-                <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(57,255,20,0.05)_50%)] bg-[length:100%_4px] pointer-events-none" />
+            <div className="relative h-full bg-black/40 border border-primary/20 p-4 rounded-lg backdrop-blur-sm overflow-hidden transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(57,255,20,0.2)]">
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col h-full">
-                    <div className="flex justify-between items-start mb-4">
-                        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors font-mono">
+                <div className="relative z-10 flex flex-col h-full space-y-3">
+                    <div className="flex justify-between items-center">
+                        <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors font-mono">
                             {skill.name}
-                        </h3>
-                        <span className="text-xs text-primary/60 border border-primary/30 px-2 py-1 rounded font-mono">
-                            {skill.category}
+                        </h4>
+                        <span className="text-xs text-primary/60 font-mono">
+                            {skill.percentage}%
                         </span>
                     </div>
 
-                    <div className="mt-auto space-y-2">
-                        <div className="flex justify-between text-xs font-mono text-gray-400">
-                            <span>Proficiency</span>
-                            <span className="text-primary">{skill.level}</span>
+                    <div className="mt-auto space-y-1">
+                        <div className="text-[10px] font-mono text-gray-400">
+                            <span>Status:</span>
+                            <span className="text-primary ml-2">{skill.level}</span>
                         </div>
 
                         {/* Progress Bar Container */}
-                        <div className="h-2 bg-gray-800 rounded-full overflow-hidden border border-gray-700">
+                        <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden border border-gray-700">
                             <motion.div
-                                className="h-full bg-primary shadow-[0_0_10px_#39ff14]"
+                                className="h-full bg-primary shadow-[0_0_8px_#39ff14]"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: `${skill.percentage}%` }}
-                                transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
                             />
                         </div>
                     </div>
@@ -78,7 +88,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
 
                 {/* Glitch Overlay on Hover */}
                 {isHovered && (
-                    <div className="absolute inset-0 bg-primary/5 mix-blend-overlay pointer-events-none animate-pulse" />
+                    <div className="absolute inset-0 bg-primary/5 mix-blend-overlay pointer-events-none" />
                 )}
             </div>
         </motion.div>
@@ -109,9 +119,24 @@ export function Skills() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {skills.map((skill, index) => (
-                        <SkillCard key={index} skill={skill} index={index} />
+                <div className="space-y-12">
+                    {skillCategories.map((category, catIndex) => (
+                        <div key={category.title} className="space-y-6">
+                            <motion.h3
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: catIndex * 0.2 }}
+                                viewport={{ once: true }}
+                                className="text-2xl font-bold text-white border-l-4 border-primary pl-4"
+                            >
+                                {category.title}
+                            </motion.h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {category.skills.map((skill, index) => (
+                                    <SkillCard key={index} skill={skill} index={index} />
+                                ))}
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

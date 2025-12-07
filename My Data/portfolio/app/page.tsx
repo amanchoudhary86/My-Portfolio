@@ -16,6 +16,7 @@ import { Skills } from "@/components/sections/skills"
 import { Projects } from "@/components/sections/projects"
 import { Contact } from "@/components/sections/contact"
 import { GridScan } from "@/components/ui/grid-scan"
+import { Certifications } from "@/components/sections/certifications"
 import { Loader } from "@/components/ui/loader"
 import { TrialButton } from "@/components/ui/trial-button"
 
@@ -110,6 +111,9 @@ export default function Home() {
         </ScrollReveal>
         <ScrollReveal className="pointer-events-auto">
           <Projects />
+        </ScrollReveal>
+        <ScrollReveal className="pointer-events-auto">
+          <Certifications />
         </ScrollReveal>
         <ScrollReveal className="pointer-events-auto">
           <Contact />

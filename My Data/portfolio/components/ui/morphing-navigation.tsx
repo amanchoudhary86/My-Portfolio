@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Home, User, Briefcase, Code, Mail, Award, X } from "lucide-react"
 
 export interface MorphingNavigationLink {
     id: string;
@@ -209,7 +210,7 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
                         animate={{
                             width: isOpen
                                 ? "350px"
-                                : (isCompact ? 60 : 800),
+                                : (isCompact ? 60 : 950),
                             height: isOpen
                                 ? "auto"
                                 : 60,
@@ -314,8 +315,8 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
                             )}
                         </AnimatePresence>
                     </motion.nav>
-                </div>
-            </motion.header>
+                </div >
+            </motion.header >
         </>
     );
 };

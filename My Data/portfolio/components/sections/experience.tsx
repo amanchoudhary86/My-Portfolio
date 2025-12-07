@@ -16,7 +16,7 @@ export function Experience() {
             year: "2022 — Present",
             title: "Bachelor of Technology (CSE)",
             subtitle: "Amity University Rajasthan",
-            description: "Final Year Student specializing in AI/ML. Passionate about quantum computing and future tech.",
+            description: "Final-year B.Tech (CSE) student with a strong interest in emerging technologies.",
             icon: <GraduationCap className="h-4 w-4 mr-2 text-primary" />,
         },
         {
@@ -30,7 +30,7 @@ export function Experience() {
             year: "2022",
             title: "Secondary Education",
             subtitle: "Swami Keshwanand Convent School",
-            description: "Completed with a focus on Science and Mathematics. Built strong analytical foundations.",
+            description: "Completed secondary education with a science and mathematics background.",
             icon: <GraduationCap className="h-4 w-4 mr-2 text-primary" />,
         },
         {
