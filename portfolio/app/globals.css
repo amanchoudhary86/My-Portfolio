@@ -123,3 +123,12 @@
     @apply bg-background text-foreground font-mono;
   }
 }
+
+/* Hide Next.js Dev Indicators */
+[data-nextjs-toast],
+[data-nextjs-indicator],
+nextjs-portal {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
