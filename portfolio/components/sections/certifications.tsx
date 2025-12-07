@@ -100,7 +100,7 @@ export function Certifications() {
                     </p>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 w-full">
                 {certifications.map((cert, index) => (
                     <motion.div
                         key={index}

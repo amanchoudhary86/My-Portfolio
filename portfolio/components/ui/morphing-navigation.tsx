@@ -210,7 +210,7 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
                         animate={{
                             width: isOpen
                                 ? "350px"
-                                : (isCompact ? 60 : 950),
+                                : (isCompact ? 60 : 800),
                             height: isOpen
                                 ? "auto"
                                 : 60,

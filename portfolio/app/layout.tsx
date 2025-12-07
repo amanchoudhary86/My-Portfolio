@@ -41,10 +41,10 @@ export default function RootLayout({
             { id: "skills", label: "Skills", href: "#skills", icon: <Code className="w-4 h-4" /> },
             { id: "projects", label: "Projects", href: "#projects", icon: <FileText className="w-4 h-4" /> },
             { id: "certifications", label: "Certifications", href: "#certifications", icon: <Award className="w-4 h-4" /> },
-            { id: "contact", label: "Contact", href: "#contact", icon: <Mail className="w-4 h-4" /> },
+
           ]}
         />
-        <main className="container mx-auto px-4 py-8">
+        <main className="container mx-auto px-4 pt-8 pb-0">
           {children}
         </main>
       </body>

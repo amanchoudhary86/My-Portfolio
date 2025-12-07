@@ -260,7 +260,7 @@ export const ScrollTimeline = ({
                 </p>
             </div>
 
-            <div className="relative max-w-6xl mx-auto px-4 pb-24">
+            <div className="relative max-w-[90%] mx-auto px-4 pb-24">
                 <div className="relative mx-auto">
                     <div
                         className={cn(getConnectorClasses(), "absolute top-0 z-10")}

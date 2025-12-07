@@ -112,22 +112,18 @@ export function Skills() {
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary tracking-tighter glitch-text" data-text="Technical Arsenal">
                         Technical Arsenal
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto font-mono text-sm md:text-base">
-                        // SYSTEM.SCAN_COMPLETE: DETECTED_CAPABILITIES
-                        <br />
-                        // LOADING_MODULES...
-                    </p>
+
                 </motion.div>
 
                 <div className="space-y-12">
                     {skillCategories.map((category, catIndex) => (
                         <div key={category.title} className="space-y-6">
                             <motion.h3
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: -20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: catIndex * 0.2 }}
                                 viewport={{ once: true }}
-                                className="text-2xl font-bold text-white border-l-4 border-primary pl-4"
+                                className="text-2xl font-bold text-white text-center mb-6"
                             >
                                 {category.title}
                             </motion.h3>

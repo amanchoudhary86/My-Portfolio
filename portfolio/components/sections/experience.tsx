@@ -43,7 +43,7 @@ export function Experience() {
     ]
 
     return (
-        <section id="experience" className="w-full py-12 md:py-24 bg-black/50 backdrop-blur-md border border-primary/20 rounded-[2rem] overflow-hidden my-8">
+        <section id="experience" className="w-full py-12 md:py-24 my-8">
             <ScrollTimeline
                 events={events}
                 title="My Journey"

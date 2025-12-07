@@ -59,7 +59,7 @@ export function Contact() {
                 viewport={{ once: true }}
                 className="space-y-8"
             >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center gap-4">
                     <Mail className="h-8 w-8 text-primary" />
                     <h2 className="text-3xl font-bold tracking-tight text-primary">Establish Connection</h2>
                 </div>
