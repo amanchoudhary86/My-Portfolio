@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aman Choudhary | Hacker Portfolio",
+  title: "Aman Choudhary | Portfolio",
   description: "Portfolio of Aman Choudhary - AI/ML Enthusiast",
 };
 
