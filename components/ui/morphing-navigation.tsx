@@ -96,7 +96,7 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
     const themeStyles = getThemeStyles();
 
     useEffect(() => {
-        // If menu is open, we stop listening to scroll to avoid jarring state changes
+        
         if (isMenuOpen) return;
 
         if (disableAutoMorph && !isMobile) return;
@@ -107,7 +107,7 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
                 setIsSticky(window.scrollY >= scrollThreshold);
             }
         };
-        // Initial check
+        
         handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -166,10 +166,10 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
         borderColor: theme === "custom" ? borderColor : undefined,
     };
 
-    // Calculate animation states
+    
     const isDesktopNormal = !isMobile && !isSticky && !isMenuOpen;
     const isCompact = (isMobile || isSticky) && !isMenuOpen;
-    const isOpen = isMenuOpen; // Unified open state
+    const isOpen = isMenuOpen; 
 
     return (
         <>
@@ -217,14 +217,14 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
                             borderRadius: isOpen ? 24 : 9999,
                         }}
                         transition={{
-                            // Sequenced animation: Width first, then Height when opening
-                            // Height first, then Width when closing
-                            width: { duration: animationDuration, ease: "easeInOut", delay: isOpen ? 0 : 0 }, // Wait for height to close
-                            height: { duration: animationDuration, ease: "easeInOut", delay: isOpen ? animationDuration * 0.5 : 0 }, // Wait for width to open
+                            
+                            
+                            width: { duration: animationDuration, ease: "easeInOut", delay: isOpen ? 0 : 0 }, 
+                            height: { duration: animationDuration, ease: "easeInOut", delay: isOpen ? animationDuration * 0.5 : 0 }, 
                             borderRadius: { duration: animationDuration },
                         }}
                     >
-                        {/* Desktop Horizontal Links */}
+                        {}
                         <AnimatePresence mode="popLayout">
                             {isDesktopNormal && (
                                 <motion.div
@@ -249,7 +249,7 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
                             )}
                         </AnimatePresence>
 
-                        {/* Mobile/Sticky Hamburger Button */}
+                        {}
                         <AnimatePresence>
                             {(isCompact || isOpen) && (
                                 <motion.div
@@ -290,7 +290,7 @@ export const MorphingNavigation: React.FC<MorphingNavigationProps> = ({
                             )}
                         </AnimatePresence>
 
-                        {/* Open Menu Vertical Links */}
+                        {}
                         <AnimatePresence>
                             {isOpen && (
                                 <motion.div

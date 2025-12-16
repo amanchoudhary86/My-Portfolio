@@ -52,7 +52,7 @@ function HolographicCard({ children, className = "" }: { children: React.ReactNo
                 style={{ transform: "translateZ(80px)" }}
                 className="relative h-full bg-black/80 backdrop-blur-xl border border-primary/30 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(57,255,20,0.1)] group-hover:border-primary/80 transition-colors duration-300 transform-gpu"
             >
-                {/* Holographic Sheen */}
+                {}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ mixBlendMode: 'overlay' }} />
 
                 {children}
@@ -108,7 +108,7 @@ export function Projects() {
                 {projects.map((project, index) => (
                     <HolographicCard key={index} className="h-full">
                         <div className="flex flex-col h-full">
-                            {/* Image Section */}
+                            {}
                             <div className="h-48 w-full relative overflow-hidden border-b border-primary/20 bg-black/50">
                                 <img
                                     src={project.image}
@@ -118,7 +118,7 @@ export function Projects() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             </div>
 
-                            {/* Content Section */}
+                            {}
                             <div className="p-6 flex flex-col flex-grow">
                                 <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                                 <p className="text-gray-400 text-sm mb-6 flex-grow">

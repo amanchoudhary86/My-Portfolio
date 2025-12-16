@@ -14,12 +14,12 @@ export function Contact() {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const form = event.currentTarget; // Capture reference
+        const form = event.currentTarget; 
         setIsSubmitting(true);
-        setResult(""); // Clear previous results
+        setResult(""); 
 
         const formData = new FormData(form);
-        // IMPORTANT: Replace this access key with your own from web3forms.com
+        
         formData.append("access_key", "6e7af3fc-c006-4275-871b-97cabbebb229");
 
         try {
@@ -34,8 +34,8 @@ export function Contact() {
 
             if (data.success) {
                 setResult("Form Submitted Successfully");
-                form.reset(); // Use captured reference
-                // Clear success message after 5 seconds
+                form.reset(); 
+                
                 setTimeout(() => {
                     setResult("");
                 }, 5000);

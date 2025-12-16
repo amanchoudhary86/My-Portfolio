@@ -11,9 +11,9 @@ export const CustomCursor = () => {
     const cursorXSpring = useSpring(cursorX, springConfig)
     const cursorYSpring = useSpring(cursorY, springConfig)
 
-    // Calculate offsets to center the circles
-    // Inner circle is 10px (w-2.5), so offset is -5
-    // Outer circle is 20px (w-5), so offset is -10
+    
+    
+    
     const cursorXInner = useTransform(cursorXSpring, (x) => x - 5)
     const cursorYInner = useTransform(cursorYSpring, (y) => y - 5)
     const cursorXOuter = useTransform(cursorXSpring, (x) => x - 10)
@@ -23,7 +23,7 @@ export const CustomCursor = () => {
 
     useEffect(() => {
         const moveCursor = (e: MouseEvent) => {
-            // Track the raw mouse position (center)
+            
             cursorX.set(e.clientX)
             cursorY.set(e.clientY)
         }

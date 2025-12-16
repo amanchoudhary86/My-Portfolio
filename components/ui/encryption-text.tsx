@@ -36,17 +36,17 @@ export function EncryptionText({ text, className }: EncryptionTextProps) {
 
     return (
         <span className={className}>
-            {/* Revealed Text */}
+            {}
             {text.slice(0, currentIndex)}
 
-            {/* Fat Cursor (Only show if not complete) */}
+            {}
             {!isComplete && (
                 <span className="bg-[#39ff14] text-black inline-block w-[1ch] align-middle h-[1.2em] relative -top-[0.1em] leading-none animate-pulse">
                     {chars[Math.floor(Math.random() * chars.length)]}
                 </span>
             )}
 
-            {/* Scrambled Remaining Text */}
+            {}
             <span className="opacity-50">
                 {text
                     .slice(currentIndex + 1)

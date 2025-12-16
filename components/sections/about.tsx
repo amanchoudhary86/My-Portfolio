@@ -69,7 +69,7 @@ export function About() {
                             <h2 className="text-3xl font-bold tracking-tight text-primary">System Identity</h2>
                         </div>
                         <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_20px_rgba(0,255,0,0.5)] mx-auto md:mx-0">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            {}
                             <img
                                 src="/profile.png"
                                 alt="Aman Choudhary"

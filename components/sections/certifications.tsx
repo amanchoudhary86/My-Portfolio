@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, Award, CheckCircle2, Download } from "lucide-react"
 import Link from "next/link"
 
-// ... (imports remain the same)
+
 
 const certifications = [
     {
@@ -97,14 +97,14 @@ const certifications = [
 ]
 
 export function Certifications() {
-    // Group certifications by level explicitly to define order
+    
     const groupedCertifications = {
         "Professional": certifications.filter(c => c.level === "Professional"),
         "Associate": certifications.filter(c => c.level === "Associate"),
         "Fundamental": certifications.filter(c => c.level === "Fundamental"),
     }
 
-    // Animation variants
+    
     const container = {
         hidden: { opacity: 0 },
         show: {
@@ -190,7 +190,7 @@ export function Certifications() {
                                                         <ExternalLink className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all" />
                                                     </Link>
                                                 </Button>
-                                                {/* Conditionally render download button if PDF exists */}
+                                                {}
                                                 {(cert as any).pdf && (
                                                     <Button variant="outline" className="flex-shrink-0 border-primary/20 text-primary hover:bg-primary/10" asChild>
                                                         <a href={(cert as any).pdf} download>

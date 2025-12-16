@@ -109,11 +109,11 @@ export const ScrollTimeline = ({
         if (timelineRefs.current.length === 0) return;
 
         const calculateHeight = () => {
-            const lastItem = timelineRefs.current[events.length - 1]; // Use events.length to be safer
+            const lastItem = timelineRefs.current[events.length - 1]; 
             if (lastItem) {
-                // The dot is centered in the item (top-1/2).
-                // Item offsetTop is relative to the parent container (line 239).
-                // So height = offsetTop + offsetHeight / 2
+                
+                
+                
                 const newHeight = lastItem.offsetTop + lastItem.offsetHeight / 2;
                 setLineHeight(newHeight);
             }
@@ -267,11 +267,11 @@ export const ScrollTimeline = ({
                         style={{ height: lineHeight ? `${lineHeight}px` : "100%" }}
                     ></div>
 
-                    {/* === MODIFICATION START === */}
-                    {/* Enhanced Progress Indicator with Traveling Glow */}
+                    {}
+                    {}
                     {progressIndicator && (
                         <>
-                            {/* The main filled progress line */}
+                            {}
                             <motion.div
                                 className="absolute top-0 z-10"
                                 style={{
@@ -282,29 +282,29 @@ export const ScrollTimeline = ({
                                     borderRadius:
                                         progressLineCap === "round" ? "9999px" : "0px",
                                     background: `linear-gradient(to bottom, #22d3ee, #6366f1, #a855f7)`,
-                                    // Enhanced shadow for a constant glow effect along the path
+                                    
                                     boxShadow: `
                     0 0 15px rgba(99,102,241,0.5),
                     0 0 25px rgba(168,85,247,0.3)
                   `,
                                 }}
                             />
-                            {/* The traveling glow "comet" at the head of the line */}
+                            {}
                             <motion.div
                                 className="absolute z-20"
                                 style={{
                                     top: progressHeight,
                                     left: "50%",
                                     translateX: "-50%",
-                                    translateY: "-50%", // Center the comet on the line's end point
+                                    translateY: "-50%", 
                                 }}
                             >
                                 <motion.div
-                                    className="w-5 h-5 rounded-full" // Size of the comet core
+                                    className="w-5 h-5 rounded-full" 
                                     style={{
                                         background:
                                             "radial-gradient(circle, rgba(168,85,247,0.8) 0%, rgba(99,102,241,0.5) 40%, rgba(34,211,238,0) 70%)",
-                                        // Intense, layered glow effect for the comet
+                                        
                                         boxShadow: `
                       0 0 15px 4px rgba(168, 85, 247, 0.6),
                       0 0 25px 8px rgba(99, 102, 241, 0.4),
@@ -323,7 +323,7 @@ export const ScrollTimeline = ({
                             </motion.div>
                         </>
                     )}
-                    {/* === MODIFICATION END === */}
+                    {}
 
                     <div className="relative z-20">
                         {events.map((event, index) => {

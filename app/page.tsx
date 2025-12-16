@@ -28,7 +28,7 @@ export default function Home() {
     <div className="flex flex-col items-center w-full relative">
       <Loader onLoadingComplete={() => setIsLoaded(true)} />
       <div className="fixed inset-0 z-0">
-        {/* Background removed as per user request */}
+        {}
       </div>
       <section className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center space-y-8 text-center w-full py-12 md:py-24 pointer-events-none">
         <MatrixRain />

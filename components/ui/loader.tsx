@@ -31,7 +31,7 @@ function ParticleSphere() {
     useFrame((state) => {
         const time = state.clock.getElapsedTime()
         ref.current.rotation.y = time * 0.1
-        // Pulsating effect
+        
         const scale = 1 + Math.sin(time * 2) * 0.05
         ref.current.scale.set(scale, scale, scale)
     })
@@ -91,8 +91,8 @@ export function Loader({ onLoadingComplete }: { onLoadingComplete?: () => void }
     const [statusText, setStatusText] = useState("INITIALIZING KERNEL")
 
     useEffect(() => {
-        const duration = 3500 // 3.5 seconds total load time
-        const interval = 35 // Update every 35ms
+        const duration = 3500 
+        const interval = 35 
         const steps = duration / interval
         let currentStep = 0
 
@@ -101,7 +101,7 @@ export function Loader({ onLoadingComplete }: { onLoadingComplete?: () => void }
             const newProgress = Math.min((currentStep / steps) * 100, 100)
             setProgress(newProgress)
 
-            // Update status text based on progress
+            
             if (newProgress < 30) setStatusText("INITIALIZING SEQUENCE")
             else if (newProgress < 60) setStatusText("LOADING ASSETS")
             else if (newProgress < 90) setStatusText("CONFIGURING VIEWPORT")
@@ -139,12 +139,12 @@ export function Loader({ onLoadingComplete }: { onLoadingComplete?: () => void }
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black overflow-hidden"
                 >
-                    {/* Background Matrix Rain (Dimmed) */}
+                    {}
                     <div className="absolute inset-0 opacity-20">
                         <MatrixRain />
                     </div>
 
-                    {/* 3D Scene */}
+                    {}
                     <div className="w-[500px] h-[500px] relative z-10">
                         <Canvas camera={{ position: [0, 0, 6] }}>
                             <ParticleSphere />
@@ -152,7 +152,7 @@ export function Loader({ onLoadingComplete }: { onLoadingComplete?: () => void }
                         </Canvas>
                     </div>
 
-                    {/* UI Overlay */}
+                    {}
                     <div className="absolute bottom-20 w-full max-w-md px-4 z-20 flex flex-col items-center space-y-4">
                         <motion.div
                             key={statusText}
@@ -164,7 +164,7 @@ export function Loader({ onLoadingComplete }: { onLoadingComplete?: () => void }
                             {`> ${statusText}...`}
                         </motion.div>
 
-                        {/* Progress Bar */}
+                        {}
                         <div className="w-full h-1 bg-gray-900 rounded-full overflow-hidden border border-[#39ff14]/30">
                             <motion.div
                                 className="h-full bg-[#39ff14] shadow-[0_0_15px_#39ff14]"
@@ -178,7 +178,7 @@ export function Loader({ onLoadingComplete }: { onLoadingComplete?: () => void }
                         </div>
                     </div>
 
-                    {/* Corner Accents */}
+                    {}
                     <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-[#39ff14]/30" />
                     <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-[#39ff14]/30" />
                     <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-[#39ff14]/30" />

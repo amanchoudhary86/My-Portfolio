@@ -44,7 +44,7 @@ export function Navbar() {
                 </div>
                 <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
                     <div className="w-full flex-1 md:w-auto md:flex-none">
-                        {/* Add search or other controls here if needed */}
+                        {}
                     </div>
                     <nav className="flex items-center">
                         <Button variant="ghost" size="icon" className="md:hidden">

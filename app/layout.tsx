@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import { Navbar } from "@/components/navbar";
+
 import { MorphingNavigation } from "@/components/ui/morphing-navigation";
 import { Terminal, User, Code, Mail, FileText, Briefcase, Award } from "lucide-react";
 

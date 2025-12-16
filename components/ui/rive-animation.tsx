@@ -3,7 +3,7 @@
 import { useRive, Layout, Fit, Alignment } from '@rive-app/react-canvas';
 
 interface RiveAnimationProps {
-    src: string; // URL to the .riv file
+    src: string; 
     className?: string;
     artboard?: string;
     animations?: string[];

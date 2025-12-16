@@ -54,10 +54,10 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Cyber Card Container */}
+            {}
             <div className="relative h-full bg-black/40 border border-primary/20 p-4 rounded-lg backdrop-blur-sm overflow-hidden transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(57,255,20,0.2)]">
 
-                {/* Content */}
+                {}
                 <div className="relative z-10 flex flex-col h-full space-y-3">
                     <div className="flex justify-between items-center">
                         <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors font-mono">
@@ -74,7 +74,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
                             <span className="text-primary ml-2">{skill.level}</span>
                         </div>
 
-                        {/* Progress Bar Container */}
+                        {}
                         <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden border border-gray-700">
                             <motion.div
                                 className="h-full bg-primary shadow-[0_0_8px_#39ff14]"
@@ -86,7 +86,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
                     </div>
                 </div>
 
-                {/* Glitch Overlay on Hover */}
+                {}
                 {isHovered && (
                     <div className="absolute inset-0 bg-primary/5 mix-blend-overlay pointer-events-none" />
                 )}
@@ -98,7 +98,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
 export function Skills() {
     return (
         <section id="skills" className="py-24 relative overflow-hidden">
-            {/* Background Elements */}
+            {}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(57,255,20,0.03)_0%,transparent_70%)] pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
