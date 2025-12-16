@@ -85,7 +85,7 @@ export function About() {
                         </CardHeader>
                         <CardContent className="space-y-4 text-muted-foreground">
                             <p>
-                                <span className="font-bold text-foreground">Core Function:</span> AI/ML Enthusiast
+                                <span className="font-bold text-foreground">Core Function:</span> Technophile
                             </p>
                             <p>
                                 <span className="font-bold text-foreground">Current Status:</span> Final Year B.Tech (CSE) @ Amity University Rajasthan
